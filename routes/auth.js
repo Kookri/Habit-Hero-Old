@@ -1,42 +1,44 @@
 const express = require('express');
+const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 
 const router = express.Router();
 
-// Signup route
 router.post('/signup', async (req, res) => {
     const { username, email, password } = req.body;
 
-    // Check if user already exists
-    const user = await User.findOne({ email });
-    if (user) return res.status(400).json({ error: 'User already exists' });
+    try {
+        const user = new User({ username, email, password });
+        await user.save();
 
-    // Create new user
-    const newUser = new User({ username, email, password });
-    await newUser.save();
+        const token = jwt.sign({ userId: user._id }, '4WDk2HgiJq3P3m');
 
-    // Create and return a token
-    const token = jwt.sign({ id: newUser._id }, 'your_jwt_secret');
-    res.json({ token });
+        res.send({ token });
+    } catch (err) {
+        return res.status(422).send(err.message);
+    }
 });
 
-// Login route
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
-    // Check if user exists
+    if (!email || !password) {
+        return res.status(422).send({ error: 'Must provide email and password' });
+    }
+
     const user = await User.findOne({ email });
-    if (!user) return res.status(400).json({ error: 'Invalid credentials' });
+    if (!user) {
+        return res.status(422).send({ error: 'Invalid password or email' });
+    }
 
-    // Check if password is correct
-    const passwordIsValid = await bcrypt.compare(password, user.password);
-    if (!passwordIsValid) return res.status(400).json({ error: 'Invalid credentials' });
-
-    // Create and return a token
-    const token = jwt.sign({ id: user._id }, 'your_jwt_secret');
-    res.json({ token });
+    try {
+        await bcrypt.compare(password, user.password);
+        const token = jwt.sign({ userId: user._id }, 'your_jwt_secret');
+        res.send({ token });
+    } catch (err) {
+        return res.status(422).send({ error: 'Invalid password or email' });
+    }
 });
 
 module.exports = router;
