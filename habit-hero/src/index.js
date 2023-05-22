@@ -1,14 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { UserProvider } from './UserContext'; // import UserProvider
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+// Wrap your App component with UserProvider
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <UserProvider>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </UserProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

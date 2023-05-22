@@ -1,5 +1,6 @@
 
-//Importing modules from React base module. createContext is a function that allows us to create a new context (which we'll use for state management). useState is a hook that allows us to add state to a function component.
+//Importing modules from React base module. createContext is a function that allows us to create a new context (which we'll use for state management). 
+//useState is a hook that allows us to add state to a function component.
 import React, { createContext, useState } from 'react'; 
 
 // Creating a new context and exporting it. This context will share state (user data) across components. 
