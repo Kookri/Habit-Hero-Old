@@ -3,6 +3,7 @@ import { UserContext } from './UserContext'; // ensure that './UserContext' corr
 import SignupForm from './SignupForm';
 import SigninForm from './SigninForm';
 import UserProfile from './UserProfile';
+import './App.css'; // importing the App.css file
 
 const App = () => {
   const { user } = useContext(UserContext);
