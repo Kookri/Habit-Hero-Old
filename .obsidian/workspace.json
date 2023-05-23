@@ -13,13 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Habit game Design Document.md",
+                "file": "habit-hero/src/App.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "00f4316119bfa3a0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "habit-hero/src/UserContext.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Habit game Design Document.md",
+                "file": "habit-hero/src/UserContext.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Habit game Design Document.md",
+                "file": "habit-hero/src/UserContext.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Habit game Design Document.md"
+                "file": "habit-hero/src/UserContext.md"
               }
             }
           }
@@ -146,10 +159,25 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "b6d1248c96ea4ec9",
+  "active": "c5add81ff80b5ddf",
   "lastOpenFiles": [
+    "node_modules/jwt-decode/index.d.ts",
+    "node_modules/jwt-decode/README.md",
+    "node_modules/jwt-decode/CHANGELOG.md",
+    "node_modules/jwt-decode/package.json",
+    "node_modules/jwt-decode/build/jwt-decode.js.map",
+    "node_modules/jwt-decode/build/jwt-decode.js",
+    "node_modules/jwt-decode/build/jwt-decode.esm.js.map",
+    "node_modules/jwt-decode/build/jwt-decode.esm.js",
+    "node_modules/jwt-decode/build/jwt-decode.cjs.js.map",
+    "node_modules/jwt-decode/build/jwt-decode.cjs.js",
+    "node_modules/jwt-decode/build",
+    "node_modules/jwt-decode/LICENSE",
+    "node_modules/jwt-decode",
+    "habit-hero/src/App.md",
+    "habit-hero/src/UserContext.md",
+    "Habit game Design Document.md",
     "habit-hero/src/logo.svg",
-    "Notes.md",
-    "Habit game Design Document.md"
+    "Notes.md"
   ]
 }

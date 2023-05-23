@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { UserContext } from './UserContext';
 
-const UserProfile = ({ username }) => {
+const UserProfile = () => {
+  const { user } = useContext(UserContext);
+
   return (
     <div>
-      <h2>Welcome, {username}!</h2>
+      {user ? <h2>Welcome, {user.username}!</h2> : <p>Loading...</p>}
       {/* Add additional user profile information or components here */}
     </div>
   );
