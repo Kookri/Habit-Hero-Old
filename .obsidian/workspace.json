@@ -148,6 +148,7 @@
   },
   "active": "00f4316119bfa3a0",
   "lastOpenFiles": [
+    "habit-hero/node_modules/fsevents",
     "habit-hero/src/App.md",
     "habit-hero/src/UserContext.md",
     "routes/auth.md",
