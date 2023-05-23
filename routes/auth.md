@@ -1,0 +1,1 @@
+2022-05-23 - Trying to resolve authentication issues - currently entering login on the signinform rejects a bad email but not a bad password, which just sends more tokens. See [[App]]

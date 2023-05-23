@@ -33,13 +33,16 @@ router.post('/login', async (req, res) => {
     return res.status(422).send({ error: 'Must provide email and password' });
   }
 
-  const user = await User.findOne({ email });
-  if (!user) {
-    return res.status(422).send({ error: 'Invalid password or email' });
-  }
-
   try {
-    await bcrypt.compare(password, user.password);
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(422).send({ error: 'Invalid email' });
+    }
+
+    const passwordMatch = await bcrypt.compare(password, user.password);
+    if (!passwordMatch) {
+      return res.status(422).send({ error: 'Invalid password' });
+    }
 
     const accessToken = jwt.sign({ userId: user._id }, config.jwtSecret, { expiresIn: '15m' });
     const refreshToken = jwt.sign({ userId: user._id }, config.jwtSecret, { expiresIn: '7d' });
@@ -50,7 +53,7 @@ router.post('/login', async (req, res) => {
 
     res.send({ accessToken, refreshToken });
   } catch (err) {
-    return res.status(422).send({ error: 'Invalid password or email' });
+    return res.status(500).send({ error: 'Internal server error' });
   }
 });
 
@@ -61,31 +64,30 @@ router.post('/token', async (req, res) => {
     return res.status(422).send({ error: 'Refresh token is required' });
   }
 
-  // Find the user with the provided refresh token
-  const user = await User.findOne({ refreshToken });
-
-  if (!user) {
-    return res.status(422).send({ error: 'Invalid refresh token' });
-  }
-
-  // Verify the refresh token
   try {
+    // Find the user with the provided refresh token
+    const user = await User.findOne({ refreshToken });
+
+    if (!user) {
+      return res.status(422).send({ error: 'Invalid refresh token' });
+    }
+
+    // Verify the refresh token
     jwt.verify(refreshToken, config.jwtSecret);
+
+    // If the refresh token is valid, generate a new access token and refresh token
+    const accessToken = jwt.sign({ userId: user._id }, config.jwtSecret, { expiresIn: '15m' });
+    const newRefreshToken = jwt.sign({ userId: user._id }, config.jwtSecret, { expiresIn: '7d' });
+
+    // Update the refresh token in the user model
+    user.refreshToken = newRefreshToken;
+    await user.save();
+
+    // Send the new tokens
+    res.send({ accessToken, refreshToken: newRefreshToken });
   } catch (err) {
     return res.status(422).send({ error: 'Invalid refresh token' });
   }
-
-  // If the refresh token is valid, generate a new access token and refresh token
-  const accessToken = jwt.sign({ userId: user._id }, config.jwtSecret, { expiresIn: '15m' });
-  const newRefreshToken = jwt.sign({ userId: user._id }, config.jwtSecret, { expiresIn: '7d' });
-
-  // Update the refresh token in the user model
-  user.refreshToken = newRefreshToken;
-  await user.save();
-
-  // Send the new tokens
-  res.send({ accessToken, refreshToken: newRefreshToken });
 });
 
 module.exports = router;
-

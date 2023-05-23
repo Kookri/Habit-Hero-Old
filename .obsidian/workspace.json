@@ -11,8 +11,12 @@
             "id": "00f4316119bfa3a0",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "server.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "server.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "server.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "server.md"
+              }
             }
           }
         ]
@@ -138,8 +146,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "c5add81ff80b5ddf",
+  "active": "00f4316119bfa3a0",
   "lastOpenFiles": [
+    "habit-hero/src/App.md",
+    "habit-hero/src/UserContext.md",
+    "routes/auth.md",
+    "server.md",
     "Controllers/UserController.js",
     "Controllers",
     "controllers/UserController.js",
@@ -151,10 +163,7 @@
     "node_modules/jwt-decode/build/jwt-decode.cjs.js.map",
     "node_modules/jwt-decode/build/jwt-decode.cjs.js",
     "node_modules/jwt-decode/README.md",
-    "node_modules/jwt-decode/package.json",
     "node_modules/jwt-decode/CHANGELOG.md",
-    "habit-hero/src/UserContext.md",
-    "habit-hero/src/App.md",
     "Habit game Design Document.md",
     "habit-hero/src/logo.svg",
     "Notes.md"

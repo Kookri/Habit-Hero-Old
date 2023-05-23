@@ -1,1 +1,3 @@
 2023-05-23 - Getting an error ' Line 9:11:  'user' is assigned a value but never used  no-unused-vars' - this is related to the [[UserContext]] it seems like there isn't an actual user variable that applies to the overlay? 
+
+Still having issues with authentication. It appears that as of today, entering values in sign up will result in tokens being received in the console, but it doesn't seem to be saving entries to the database. Also, logging in is rejecting bad emails but not bad passwords. Not sure why. 
