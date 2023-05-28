@@ -4,6 +4,7 @@ import SignupForm from './SignupForm';
 import SigninForm from './SigninForm';
 import UserProfile from './UserProfile';
 import './App.css'; // importing the App.css file
+import SignOutButton from './SignoutForm';
 
 const App = () => {
   const { user } = useContext(UserContext);
@@ -15,6 +16,9 @@ const App = () => {
 
       <h2>Or Sign In</h2>
       <SigninForm />
+
+      <h2>Sign Out</h2>
+      <SignOutButton />
 
       <h2>User Profile</h2>
       <UserProfile />

@@ -11,12 +11,8 @@
             "id": "00f4316119bfa3a0",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "server.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "server.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "server.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "server.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -148,23 +140,33 @@
   },
   "active": "00f4316119bfa3a0",
   "lastOpenFiles": [
-    "copilottest.js",
-    "habit-hero/node_modules/fsevents",
-    "habit-hero/src/App.md",
-    "habit-hero/src/UserContext.md",
-    "routes/auth.md",
+    "habit-hero/src/SignoutForm.js",
+    "habit-hero/src/SignoutForm",
+    "habit-hero/src/TokenHandler.js",
     "server.md",
-    "Controllers/UserController.js",
-    "Controllers",
-    "controllers/UserController.js",
-    "controllers",
+    "routes/auth.md",
+    "node_modules/jwt-decode/package.json",
     "node_modules/jwt-decode/build/jwt-decode.js.map",
     "node_modules/jwt-decode/build/jwt-decode.js",
+    "node_modules/jwt-decode/build/jwt-decode.cjs.js.map",
     "node_modules/jwt-decode/build/jwt-decode.esm.js.map",
     "node_modules/jwt-decode/build/jwt-decode.esm.js",
-    "node_modules/jwt-decode/build/jwt-decode.cjs.js.map",
+    "node_modules/jwt-decode/build/jwt-decode.cjs.js",
     "node_modules/jwt-decode/README.md",
+    "node_modules/jwt-decode/LICENSE",
     "node_modules/jwt-decode/CHANGELOG.md",
+    "habit-hero/src/UserContext.md",
+    "habit-hero/src/App.md",
+    "node_modules/passport-strategy/README.md",
+    "node_modules/passport-jwt/docs/migrating.md",
+    "node_modules/passport-jwt/README.md",
+    "habit-hero/node_modules/axios/SECURITY.md",
+    "habit-hero/node_modules/axios/README.md",
+    "habit-hero/node_modules/axios/MIGRATION_GUIDE.md",
+    "habit-hero/node_modules/axios/lib/helpers/README.md",
+    "habit-hero/node_modules/axios/lib/env/README.md",
+    "habit-hero/node_modules/axios/lib/core/README.md",
+    "habit-hero/node_modules/axios/lib/adapters/README.md",
     "Habit game Design Document.md",
     "habit-hero/src/logo.svg",
     "Notes.md"

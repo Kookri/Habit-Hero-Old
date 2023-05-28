@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { storeTokens, tokenTest } from './TokenHandler'; // Import the tokenHandler
 
 const SigninForm = () => {
   const [email, setEmail] = useState("");
@@ -21,7 +22,17 @@ const SigninForm = () => {
         // Successful sign-in, handle the response as needed
         const data = await response.json();
         console.log(data); // For testing purposes, you can log the response
+
+        // Store the tokens
+        const { accessToken, refreshToken } = data; // Replace with actual property names
+        storeTokens(accessToken, refreshToken);
       } else {
+          // Check if tokens are saved to localStorage
+  if (tokenTest()) {
+    console.log('Tokens successfully saved to localStorage');
+  } else {
+    console.log('Tokens not found in localStorage');
+  }
         // Handle sign-in error
         const errorData = await response.json();
         console.log(errorData); // Log the error response
@@ -30,6 +41,8 @@ const SigninForm = () => {
       console.error("Error:", error);
     }
   };
+
+
 
   return (
     <form onSubmit={handleSubmit}>
