@@ -24,25 +24,24 @@ const SigninForm = () => {
         console.log(data); // For testing purposes, you can log the response
 
         // Store the tokens
-        const { accessToken, refreshToken } = data; // Replace with actual property names
+        const { accessToken, refreshToken } = data;
         storeTokens(accessToken, refreshToken);
       } else {
-          // Check if tokens are saved to localStorage
-  if (tokenTest()) {
-    console.log('Tokens successfully saved to localStorage');
-  } else {
-    console.log('Tokens not found in localStorage');
-  }
         // Handle sign-in error
         const errorData = await response.json();
         console.log(errorData); // Log the error response
+      }
+
+      // Check if tokens are saved to localStorage
+      if (tokenTest()) {
+        console.log('Tokens successfully saved to localStorage');
+      } else {
+        console.log('Tokens not found in localStorage');
       }
     } catch (error) {
       console.error("Error:", error);
     }
   };
-
-
 
   return (
     <form onSubmit={handleSubmit}>

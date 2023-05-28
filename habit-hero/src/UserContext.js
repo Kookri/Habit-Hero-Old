@@ -15,12 +15,12 @@ export const UserProvider = ({ children }) => {
   useEffect(() => {
     // Get the token from local storage
     const token = localStorage.getItem('accessToken');
-
+  
     if (token) {
       // Decode the token to get the user id
       const decoded = jwt_decode(token);
       const userId = decoded.userId;
-
+  
       // Fetch the user data
       fetch(`/api/user/${userId}`, {
         method: 'GET',
@@ -33,8 +33,8 @@ export const UserProvider = ({ children }) => {
       .then(data => setUser(data))
       .catch(error => console.error('Error:', error));
     }
-  }, []); // Empty array means this effect runs once when the component mounts
-
+  }, [localStorage.getItem('accessToken')]); // Add the access token as a dependency
+  
   // Returning userContext.Provider component. Wraps around 'children', providing them access to the user state and setUser function. 
   return (
     <UserContext.Provider value={{ user, setUser }}>
